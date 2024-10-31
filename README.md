@@ -1,4 +1,7 @@
-# bet365-live-scraper
+
+# bet365-scraper, scrape Bet365 live score, include soccer and basketball, score and odds.
+# bet365 爬虫，抓取websocket数据，可以获取bet365的滚球，包括队伍信息实时比分、实时赔率。
+
 # English
 #### Function:
 Retrieve Live Football and Basketball Match Information from Bet365.
