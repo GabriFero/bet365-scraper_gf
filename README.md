@@ -21,7 +21,7 @@ Intercept WebSocket messages from Bet365’s webpage in the browser and send the
 
 4.Open the browser extension panel and configure the upload URL to ensure data is successfully sent to local_api, the default URL is already set to http://127.0.0.1:8485
 
-5.Open the Bet365 live betting page in your browser.
+5.Open the Bet365 live betting page in your browser.Note that if you open the Chinese version, you must first change the language variable in local_api.py to "cn".
 
 #### How to Use the API:
 1.Get Football Matches (GET):
@@ -32,7 +32,11 @@ http://127.0.0.1:8485/live?sport=1
 
 http://127.0.0.1:8485/live?sport=18
 
-3.Soccer Goal Line (GET)：
+3.Get websocket raw data(GET)：
+
+http://127.0.0.1:8485/data
+
+4.Soccer Goal Line (GET)：
 
 http://43.156.131.8:8080/b365/soccer/test/oneHd2allEv/C1-G15?lang=en
 
@@ -57,7 +61,7 @@ Telegram: https://t.me/JoeBili
 
 4.在浏览器插件中打开面板，配置upload url，确保数据能上传到local_api，默认已经配置都是http://127.0.0.1:8485
 
-5.在浏览器中打开bet365的滚球页面。
+5.在浏览器中打开bet365的滚球页面。注意如果打开的是英文版，要先将local_api.py中的language变量改为en。
 
 #### 如何调用接口:
 1.获取足球(GET)：
@@ -68,7 +72,11 @@ http://127.0.0.1:8485/live?sport=1
 
 http://127.0.0.1:8485/live?sport=18
 
-3.足球大小球指数(GET)：
+3.获取websocket原始数据(GET)：
+
+http://127.0.0.1:8485/data
+
+4.足球大小球指数(GET)：
 
 http://43.156.131.8:8080/b365/soccer/test/oneHd2allEv/C1-G15
 
