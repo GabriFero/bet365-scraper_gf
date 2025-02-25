@@ -1,4 +1,7 @@
 import time
+from datetime import datetime, timedelta
+import pytz
+
 from flask_cors import CORS
 from flask import Flask, request, jsonify
 app = Flask(__name__)
@@ -10,22 +13,49 @@ language = "cn"
 # en: 英文版365
 # language = "en"
 
+# gr: Greek
+# language = "gr"
 
 
 # Choose different DATA structures and key SUFFIX based on the version
 # 根据版本选择不同的 DATA 结构 和 key 后缀
+# language = "cn"
 if language == "cn":
     DATA = {
         "C1A_10_0": [],
         "C18A_10_0": []
     }
     SUFFIX = "_10_0"
+elif language == "en":
+    DATA = {
+        "C1A_1_3": [],
+        "C18A_1_3": []
+    }
+    SUFFIX = "_1_3"
+elif language == "gr":
+    DATA = {
+        "C1A_20_0": [],
+        "C18A_20_0": []
+    }
+    SUFFIX = "_20_0"
 else:
     DATA = {
         "C1A_1_3": [],
         "C18A_1_3": []
     }
     SUFFIX = "_1_3"
+# cn: 中文版365
+
+
+def calculate_time_offset():
+    """动态计算时差，冬令时为8小时，夏令时为7小时"""
+    uk_tz = pytz.timezone("Europe/London")
+    now = datetime.now(uk_tz)
+    # 判断是否处于夏令时
+    if now.dst() != timedelta(0):
+        return 7 * 60 * 60  # 夏令时
+    else:
+        return 8 * 60 * 60  # 冬令时
 
 
 def to_dit(txt):
@@ -149,7 +179,7 @@ def soccer_data():
                 league = info["CT"]
 
                 begin_ts = time.mktime(time.strptime(TU, '%Y%m%d%H%M%S'))
-                now_ts = time.time() - 7 * 60 * 60 + TS
+                now_ts = int(time.time()) - calculate_time_offset()
                 if TM == 0 and TT == 0:
                     rel_time_set = '00:00'
                 else:
@@ -199,7 +229,7 @@ def basketball_data():
 
                 try:
                     begin_ts = int(time.mktime(time.strptime(TU, '%Y%m%d%H%M%S')))
-                    now_ts = int(time.time()) - 7 * 60 * 60
+                    now_ts = int(time.time()) - calculate_time_offset()
 
                     if TT == 1:
                         if now_ts - begin_ts >= TS:
