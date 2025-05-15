@@ -38,7 +38,7 @@ http://127.0.0.1:8485/data
 
 4.Soccer Goal Line (GET)：
 
-http://43.156.131.8:8080/b365/soccer/test/oneHd2allEv/C1-G15?lang=en
+http://124.156.195.77:8365/b365/soccer/test/oneHd2allEv/C1-G15?lang=en
 
 ### Any question contact
 This project can only capture limited data, more data please contact
@@ -78,7 +78,7 @@ http://127.0.0.1:8485/data
 
 4.足球大小球指数(GET)：
 
-http://43.156.131.8:8080/b365/soccer/test/oneHd2allEv/C1-G15
+http://124.156.195.77:8365/b365/soccer/test/oneHd2allEv/C1-G15
 
 ### 问题交流
 此项目只能抓取有限数据，更多数据联系
