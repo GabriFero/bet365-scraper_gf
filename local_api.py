@@ -6,6 +6,9 @@ from flask_cors import CORS
 from flask import Flask, request, jsonify
 app = Flask(__name__)
 
+# store websocket connection information
+WS_INFO = []
+
 
 # cn: 中文版365
 language = "cn"
@@ -265,13 +268,22 @@ def handle_data():
     """
     if request.method == 'POST':
         data = request.json
-        try:
-            data_parse(data.get("data", ""))
-        except Exception as e:
-            print(f"Error parsing data: {e}")
+        if 'ws_info' in data:
+            WS_INFO.append(data['ws_info'])
+        else:
+            try:
+                data_parse(data.get("data", ""))
+            except Exception as e:
+                print(f"Error parsing data: {e}")
         return "1"
     elif request.method == 'GET':
         return jsonify(DATA), 200
+
+
+@app.route('/wsinfo', methods=['GET'])
+def ws_info():
+    """Return captured websocket connection info."""
+    return jsonify(WS_INFO), 200
 
 
 

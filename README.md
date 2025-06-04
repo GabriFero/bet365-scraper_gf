@@ -36,7 +36,11 @@ http://127.0.0.1:8485/live?sport=18
 
 http://127.0.0.1:8485/data
 
-4.Soccer Goal Line (GET)：
+4.Get websocket connection info(GET)：
+
+http://127.0.0.1:8485/wsinfo
+
+5.Soccer Goal Line (GET)：
 
 http://124.156.195.77:8365/b365/soccer/test/oneHd2allEv/C1-G15?lang=en
 
@@ -76,7 +80,11 @@ http://127.0.0.1:8485/live?sport=18
 
 http://127.0.0.1:8485/data
 
-4.足球大小球指数(GET)：
+4.获取websocket连接信息(GET)：
+
+http://127.0.0.1:8485/wsinfo
+
+5.足球大小球指数(GET)：
 
 http://124.156.195.77:8365/b365/soccer/test/oneHd2allEv/C1-G15
 
